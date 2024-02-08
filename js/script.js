@@ -7,18 +7,22 @@ const fetchJoke = async() => {
 	const response = await fetch('https://api.chucknorris.io/jokes/random');
 	const data = await response.json();
 	return data.value
-	} catch (error){
+	} 
+	catch (error){
 		console.log('Error!', error);
 	}
 
 }
 
 const renderJoke = async ()=> {
+	try {
 
 	jokeContainer.textContent= ' Loading Joke';
    const joke = await fetchJoke();
 	jokeContainer.textContent = joke;
-	
+	} catch (error){
+			console.log('Error!', error);
+	}
 }
 
 jokeButton.addEventListener('click', renderJoke);
