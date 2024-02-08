@@ -1,3 +1,4 @@
+// DOM ELEMENT
 const jokeButton = document.querySelector('.get-joke-button');
 const jokeContainer = document.querySelector('.joke-container');
 
@@ -5,7 +6,7 @@ const jokeContainer = document.querySelector('.joke-container');
 const fetchJoke = async ()=> {
 	const response = await fetch ('https://api.chucknorris.io/jokes/random');
 	const data = await response.json();
-	renderJoke(data.value)
+	renderJoke(data.value);
 	console.log(data.value);
 }
 
@@ -13,8 +14,9 @@ const fetchJoke = async ()=> {
 const renderJoke = (joke)=> {
 	const paragraph = document.createElement('p');
 	jokeContainer.appendChild(paragraph);
-	paragraph.textContent = joke
+	paragraph.textContent = joke;
 }
 // ADD LISTENER
-jokeButton.addEventListener('click', fetchJoke),
+jokeButton.addEventListener('click', fetchJoke);
+
 fetchJoke()
